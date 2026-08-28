@@ -1,0 +1,14 @@
+# Changelog
+
+## 1.1.0
+
+- core 增加与业务无关的 `docs/rules/00`–`10`（代码、日志、工程原则、分层与模式、迭代、测试、数据库、Git、部署、上下文/tokens）。
+- `LLM-PROMPT.md`：空仓或已有骨架时让模型执行安装器。
+- 安装器打印 `mode=empty|existing`；门禁校验十条细则非空。
+- `.agent/rules.md` 改为执行口 + 索引，避免与细则双源。
+
+## 1.0.0
+
+- 从治理核抽出可安装套件：`.agent/` 七文件、纯路标指针、`verify-agent.sh`。
+- overlay 仅为占位，不含来源产品的认证/存储/文件限额红线。
+- 可选：`--with-mcp`（必须同时给 `--mcp-cli`）、`--with-ci`、`--with-review-skill`。

@@ -1,0 +1,21 @@
+# Grok: scan .agent/skills (not the default .grok/skills path).
+# MCP command/args must stay aligned with root .mcp.json.
+
+[skills]
+paths = [".agent/skills"]
+
+[mcp_servers.playwright]
+command = "node"
+args = [
+  "{{MCP_CLI}}",
+  "--headless",
+  "--isolated",
+  "--ignore-https-errors",
+  "--caps",
+  "vision",
+]
+startup_timeout_sec = 90
+enabled = true
+
+[mcp_servers.playwright.env]
+PLAYWRIGHT_BROWSERS_PATH = "${HOME}/Library/Caches/ms-playwright"

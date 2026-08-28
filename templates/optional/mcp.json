@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "node",
+      "args": [
+        "{{MCP_CLI}}",
+        "--headless",
+        "--isolated",
+        "--ignore-https-errors",
+        "--caps",
+        "vision"
+      ],
+      "env": {
+        "PLAYWRIGHT_BROWSERS_PATH": "${HOME}/Library/Caches/ms-playwright"
+      }
+    }
+  }
+}
