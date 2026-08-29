@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Git 规约引入三分支模型 `main / develop / feat|fix 编号分支`：开工前检查并自动从 `main` 创建 `develop`；每次迭代默认只提交到本迭代编号分支；用户确认测试通过后才合入 `develop`；`main` 一律由用户本人从 `develop` 提 PR 更新，禁止 agent 以任何方式合入。
+
 ## 1.1.0
 
 - core 增加与业务无关的 `docs/rules/00`–`10`（代码、日志、工程原则、分层与模式、迭代、测试、数据库、Git、部署、上下文/tokens）。
