@@ -33,4 +33,4 @@
 
 ## Git
 
-有 `.git` 时提交主题与分支带同一 `FEAT-NNN` 或 `BUG-NNN`。见 `08-git.md`。
+有 `.git` 时提交主题与分支带同一 `FEAT-NNN` 或 `BUG-NNN`。分支模型 `main ← develop ← 编号分支`：开工前检查 `develop`（没有就从 `main` 创建），编号分支从 `develop` 切出，迭代默认只提交到编号分支；**用户确认测试通过**后才合入 `develop`；`main` 只由用户本人从 `develop` 提 PR 更新，agent 永不合入。见 `08-git.md`。

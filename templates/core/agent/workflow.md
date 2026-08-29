@@ -21,11 +21,13 @@
 ⑩ 按 .agent/verification.md 执行验证
 ⑪ 编号截图写入该迭代 `test-report/`（`S01-*.png` 起），在 `test-report.md` 按编号引用后归档
 ⑫ 登记索引；若本迭代改动了数据库表，同步项目表结构目录（若有）
-⑬ 若仓库已有 `.git`：在本迭代编号分支上提交并合入（见 §7）
+⑬ 若仓库已有 `.git`：确保 `develop` 分支存在（没有则从 `main` 创建），在本迭代编号分支上提交并推送（见 §7）
+⑭ 【用户确认测试通过】 ← 硬性门
+⑮ 编号分支 `--no-ff` 合入 `develop`，并提醒用户本人从 `develop` 向 `main` 提 PR（agent 永不改 `main`）
 ```
 
 **必须（always）**
-- 在 ⑤ 与 ⑦ 两处停下来等用户确认，不得自行推进。
+- 在 ⑤、⑦ 与 ⑭ 三处停下来等用户确认，不得自行推进。
 - 编号目录必须在写任何业务代码之前建立。
 - 涉及表结构变更时，`plan.md` 写明表变更，并更新表结构目录（若项目有该文档）。
 
@@ -89,14 +91,21 @@ ls docs/bug-fix    # 取现有最大 BUG 号 + 1
 
 ## 7. Git 提交与分支（有 `.git` 时强制）
 
+分支模型：`main` ← `develop` ← `feat|fix/<编号>-<slug>`。展开见 `docs/rules/08-git.md`。
+
 **必须（always）**
-- 提交主题含已存在的 `FEAT-<3位>` 或 `BUG-<3位>`，格式：`<type>(FEAT-012): …` 或 `<type>(BUG-007): …`。
-- 工作分支名含同一编号：`feat/FEAT-<3位>-<slug>` 或 `fix/BUG-<3位>-<slug>`。一条分支只做这一个编号。
-- 一次 commit 只对应一个编号。已合入默认分支的回滚用 `git revert`。
+- 开工前检查 `develop` 是否存在，没有就从 `main` 创建：`git checkout -b develop main`。
+- 工作分支名含同一编号：`feat/FEAT-<3位>-<slug>` 或 `fix/BUG-<3位>-<slug>`，从 `develop` 切出。一条分支只做这一个编号。
+- 提交与推送**默认只落在本迭代编号分支**，而不是 `main` 或 `develop`。
+- 提交主题含已存在的 `FEAT-<3位>` 或 `BUG-<3位>`，格式：`<type>(FEAT-012): …` 或 `<type>(BUG-007): …`。一次 commit 只对应一个编号。
+- 用户确认测试通过后，把编号分支 `--no-ff` 合入 `develop` 并删除工作分支，随后提醒用户本人从 `develop` 向 `main` 提 PR。
 
 **禁止（never）**
+- 把迭代提交直接做在 `main` 或 `develop` 上。
+- 以任何方式把代码合入 `main`——merge、rebase、fast-forward、代提 PR 都不允许；`main` 只由用户本人从 `develop` 提 PR 更新。
+- 用户未确认测试通过就把编号分支合入 `develop`。
 - 无编号、编号目录尚不存在、或把多个 FEAT/BUG 打进同一次提交 / 同一条长期分支。
-- 对默认分支 force-push；改写已推送历史。
+- 对 `main`、`develop` force-push；改写已推送历史。
 - 提交 `.env`、密钥、客户数据或敏感正文、签名 URL。
 
 无 `.git` 时不把「未 git commit」当作不合格。初始化仓库后的第一次提交也必须挂到某个已存在编号。
