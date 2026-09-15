@@ -28,7 +28,7 @@ bash "$KIT/install-agent-kit.sh" --root "$ROOT" --name "$NAME" --slug "$SLUG" \
 ```
 
 3. 看安装器打印的 `mode=`：
-   - `empty`：新骨架。接着填写 overlay：`.agent/constraints.md`、`architecture.md`、`design.md`，以及 `.agent/verification.md` §1.1 的本栈命令。
+   - `empty`：新骨架。接着填写 overlay：`.agents/constraints.md`、`architecture.md`、`design.md`，以及 `.agents/verification.md` §1.1 的本栈命令。
    - `existing`：已有 vibe 骨架。overlay **不得覆盖**；只补缺的 core / `docs/rules/01–10`。若指针含 `## 关键红线摘要`，安装器会失败，你要报告而不是强行改指针条款。
 4. 运行并汇报退出码：
 

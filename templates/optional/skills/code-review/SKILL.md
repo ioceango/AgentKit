@@ -8,20 +8,20 @@ description: >
 
 # Code review
 
-只审不改，除非用户明确要求动手修。条款正文在 `.agent/` 与 `docs/rules/`；本 skill 只规定**怎么审、看什么、如何汇报**。先读本项目 `.agent/architecture.md` 再分视角，不要套用其它产品的表名或目录。
+只审不改，除非用户明确要求动手修。条款正文在 `.agents/` 与 `docs/rules/`；本 skill 只规定**怎么审、看什么、如何汇报**。先读本项目 `.agents/architecture.md` 再分视角，不要套用其它产品的表名或目录。
 
 ## 0. 开工
 
 1. 圈定范围：用户点名的文件 / `FEAT-NNN` / `BUG-NNN` / 工作区改动。无 git 时读用户点名的路径，不要假装有 diff。
 2. 若范围含编号，先读该目录 `spec.md`、`plan.md`，对照 AC。
-3. 必读：`.agent/constraints.md` `.agent/architecture.md` `.agent/rules.md` `.agent/workflow.md`；涉及 UI 时读 `.agent/design.md`。
+3. 必读：`.agents/constraints.md` `.agents/architecture.md` `.agents/rules.md` `.agents/workflow.md`；涉及 UI 时读 `.agents/design.md`。
 4. 四段都要过：即使本次只改前端，也要扫一眼是否误伤分层、归属或契约。某段无发现就写「本视角无阻塞项」，不要编问题凑数。
 
 严重级别：`阻塞`（违反红线或会坏主路径）· `严重`（正确性/隔离/数据完整性）· `建议`（可维护性）。
 
 ## 1. 架构师
 
-打开 `.agent/architecture.md`，按**本项目**模块图审查，不要假设特定云厂商或认证产品。
+打开 `.agents/architecture.md`，按**本项目**模块图审查，不要假设特定云厂商或认证产品。
 
 | 查 | 缺陷信号 |
 |----|----------|
@@ -32,7 +32,7 @@ description: >
 
 ## 2. 后端
 
-打开 `.agent/constraints.md` 与 `.agent/rules.md`。
+打开 `.agents/constraints.md` 与 `.agents/rules.md`。
 
 | 查 | 缺陷信号 |
 |----|----------|
@@ -44,7 +44,7 @@ description: >
 
 ## 3. 前端
 
-打开 `.agent/architecture.md` 与 `.agent/design.md`。
+打开 `.agents/architecture.md` 与 `.agents/design.md`。
 
 | 查 | 缺陷信号 |
 |----|----------|
@@ -55,7 +55,7 @@ description: >
 
 ## 4. 数据
 
-打开项目表结构目录（若有）与 `.agent/architecture.md` 的数据节。
+打开项目表结构目录（若有）与 `.agents/architecture.md` 的数据节。
 
 | 查 | 缺陷信号 |
 |----|----------|
@@ -83,7 +83,7 @@ description: >
 - 视角：架构 | 后端 | 前端 | 数据
 - 位置：path:line
 - 问题：…
-- 依据：`.agent/…` 的哪一条
+- 依据：`.agents/…` 的哪一条
 - 建议：…
 ```
 

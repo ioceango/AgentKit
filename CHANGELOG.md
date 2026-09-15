@@ -1,7 +1,10 @@
 # Changelog
 
-## Unreleased
+## 1.2.0
 
+- **破坏性**：治理目录更名 `.agent/` → `.agents/`，对齐 AI 工具生态的 `.agents/skills/` 标准发现路径；
+  覆盖 core/overlay 模板、adapters、installer 映射/断言/文案、门禁模板与细则文本。历史 changelog 条目保留旧名。
+- opencode：项目技能（`.agents/skills/`）不再需要 `skills.paths` 桥接，默认发现路径直接生效。
 - Git 规约引入三分支模型 `main / develop / feat|fix 编号分支`：开工前检查并自动从 `main` 创建 `develop`；每次迭代默认只提交到本迭代编号分支；用户确认测试通过后才合入 `develop`；`main` 一律由用户本人从 `develop` 提 PR 更新，禁止 agent 以任何方式合入。
 
 ## 1.1.0

@@ -1,7 +1,7 @@
 <!-- agent-kit-core: {{KIT_VERSION}} -->
 # 06 自动化测试流程
 
-栈命令写在 `.agent/verification.md` §1.1。本文不绑定某包管理器。
+栈命令写在 `.agents/verification.md` §1.1。本文不绑定某包管理器。
 
 ## 顺序
 

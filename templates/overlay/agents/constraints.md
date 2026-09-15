@@ -1,4 +1,4 @@
-# .agent/constraints.md — 能力边界与红线
+# .agents/constraints.md — 能力边界与红线
 
 > 本文件规定「不能做什么」。违反任一条即为不合格交付。
 > 产品名：**{{PROJECT_NAME}}**。

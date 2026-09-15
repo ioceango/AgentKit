@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # agent-kit-core: {{KIT_VERSION}}
-# Stack-agnostic docs gate: .agent seven files, pointer purity, FEAT/BUG four-docs.
+# Stack-agnostic docs gate: .agents seven files, pointer purity, FEAT/BUG four-docs.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-AGENT_DIR="$ROOT_DIR/.agent"
+AGENT_DIR="$ROOT_DIR/.agents"
 FEATURES_DIR="$ROOT_DIR/docs/features"
 BUGFIX_DIR="$ROOT_DIR/docs/bug-fix"
 REQUIRED_AGENT=(README.md architecture.md rules.md constraints.md workflow.md verification.md design.md)
@@ -30,21 +30,21 @@ add_issue() { DOC_ISSUES+=("$1"); }
 check_agent_spec() {
   local doc present=0
   if [ ! -d "$AGENT_DIR" ]; then
-    add_issue ".agent/ 规约目录缺失（跨工具单一事实源，必须存在）"
+    add_issue ".agents/ 规约目录缺失（跨工具单一事实源，必须存在）"
     return
   fi
   for doc in "${REQUIRED_AGENT[@]}"; do
     if [ ! -f "$AGENT_DIR/$doc" ]; then
-      add_issue "缺少跨工具规约文件：.agent/$doc"
+      add_issue "缺少跨工具规约文件：.agents/$doc"
       continue
     fi
     if [ ! -s "$AGENT_DIR/$doc" ]; then
-      add_issue "跨工具规约文件为空：.agent/$doc"
+      add_issue "跨工具规约文件为空：.agents/$doc"
       continue
     fi
     present=$((present + 1))
   done
-  echo "  跨工具规约(.agent)：$present/${#REQUIRED_AGENT[@]} 份文件就绪"
+  echo "  跨工具规约(.agents)：$present/${#REQUIRED_AGENT[@]} 份文件就绪"
 }
 
 check_generic_rules() {
@@ -102,12 +102,12 @@ check_tool_pointers() {
       add_issue "工具入口指针文件为空：$pointer"
       continue
     fi
-    if ! grep -q '\.agent/' "$pointer_path"; then
-      add_issue "工具入口指针未指向 .agent/：$pointer（须包含 .agent/ 必读清单）"
+    if ! grep -q '\.agents/' "$pointer_path"; then
+      add_issue "工具入口指针未指向 .agents/：$pointer（须包含 .agents/ 必读清单）"
       continue
     fi
     if grep -q '^## 关键红线摘要' "$pointer_path"; then
-      add_issue "工具入口指针含红线条款拷贝：$pointer（须为纯路标，条款只写在 .agent/）"
+      add_issue "工具入口指针含红线条款拷贝：$pointer（须为纯路标，条款只写在 .agents/）"
       continue
     fi
     ok=$((ok + 1))
@@ -118,7 +118,7 @@ check_tool_pointers() {
   if [ "$trae_n" -lt 1 ]; then
     add_issue "缺少 Trae 入口指针：.trae/rules/00-<slug>-rules.md"
   fi
-  echo "  工具入口指针：$ok/${#POINTERS[@]} 份有效并指向 .agent/"
+  echo "  工具入口指针：$ok/${#POINTERS[@]} 份有效并指向 .agents/"
 }
 
 check_iteration_dir() {
@@ -190,6 +190,6 @@ if [ "${#DOC_ISSUES[@]}" -gt 0 ]; then
   printf '  - %s\n' "${DOC_ISSUES[@]}"
   exit 1
 fi
-echo ".agent 规约齐全、工具指针有效、编号目录命名与四文档齐全性、索引登记全部通过"
+echo ".agents 规约齐全、工具指针有效、编号目录命名与四文档齐全性、索引登记全部通过"
 echo "✓ 文档合规 gate 通过"
 exit 0
