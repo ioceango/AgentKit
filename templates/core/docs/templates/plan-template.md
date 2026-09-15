@@ -25,7 +25,7 @@
 
 ## 2. 架构与分层落点
 
-按 `.agent/architecture.md` 列出将改的文件。不要把业务规则写进路由层。
+按 `.agents/architecture.md` 列出将改的文件。不要把业务规则写进路由层。
 
 | 层 | 文件 | 改动类型 | 职责说明 |
 |----|------|----------|----------|
@@ -49,7 +49,7 @@
 
 ## 6. 验证
 
-按 `.agent/verification.md` 列出将执行的命令。有 UI 时含端到端与 `test-report/S01-*.png`。
+按 `.agents/verification.md` 列出将执行的命令。有 UI 时含端到端与 `test-report/S01-*.png`。
 
 ---
 

@@ -1,5 +1,5 @@
 <!-- agent-kit-core: {{KIT_VERSION}} -->
-# .agent/rules.md — 工程规范硬约束（执行口）
+# .agents/rules.md — 工程规范硬约束（执行口）
 
 > 产品边界在 `constraints.md`，模块落点在 `architecture.md`。
 > **细则全文**在 `docs/rules/01`–`10`（与业务无关）。冲突时改细则、不改本文件的阈值与指向。

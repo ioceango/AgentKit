@@ -13,7 +13,7 @@
 
 | 层 | 换项目还成立 | 内容 |
 |----|----------------|------|
-| core | 是 | `.agent` 执行口、确认门、十条细则、门禁、提示词 |
+| core | 是 | `.agents` 执行口、确认门、十条细则、门禁、提示词 |
 | overlay | 否 | `constraints` / `architecture` / `design` |
 | adapters | 只因工具入口 | `AGENTS.md`、`CLAUDE.md`、`.grok/rules`、`.trae/rules`（纯路标） |
 
@@ -28,7 +28,7 @@ bash show/agent-kit/install-agent-kit.sh --root /path/to/app --name "My Product"
 bash /path/to/app/scripts/verify-agent.sh
 ```
 
-安装器会打印 `mode=empty` 或 `mode=existing`。已有 `.agent/constraints.md` 时不覆盖 overlay。升级通用细则用 `--force-core`。
+安装器会打印 `mode=empty` 或 `mode=existing`。已有 `.agents/constraints.md` 时不覆盖 overlay。升级通用细则用 `--force-core`。
 
 | 参数 | 含义 |
 |------|------|
@@ -43,6 +43,6 @@ bash /path/to/app/scripts/verify-agent.sh
 
 ## 装完必做（overlay）
 
-1. 填写 `.agent/constraints.md`、`architecture.md`、`design.md`。
-2. 在 `.agent/verification.md` §1.1 补本栈 lint / test / e2e。
+1. 填写 `.agents/constraints.md`、`architecture.md`、`design.md`。
+2. 在 `.agents/verification.md` §1.1 补本栈 lint / test / e2e。
 3. 第一个需求走确认门：`docs/features/FEAT-001-<slug>/`。

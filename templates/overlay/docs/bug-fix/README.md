@@ -2,7 +2,7 @@
 
 > 每个 Bug 一个编号目录，命名 `BUG-<3位序号>-<英文短slug>/`，序号全局单调递增、不复用、不回填。
 > 每个目录固定四份文档：`spec.md`、`plan.md`、`checklist.md`、`test-report.md`。
-> **每个 Bug 修复必须补一条回归用例**，用例注释注明本迭代编号。流程见 [`.agent/workflow.md`](../../.agent/workflow.md)。
+> **每个 Bug 修复必须补一条回归用例**，用例注释注明本迭代编号。流程见 [`.agents/workflow.md`](../../.agents/workflow.md)。
 
 产品名：**{{PROJECT_NAME}}**。
 

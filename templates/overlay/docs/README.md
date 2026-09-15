@@ -1,6 +1,6 @@
 # 文档索引
 
-执行口径以 [`.agent/`](../.agent/README.md) 为准。`docs/rules/` 是给人读的细则展开；与 `.agent/` 冲突时改细则。
+执行口径以 [`.agents/`](../.agents/README.md) 为准。`docs/rules/` 是给人读的细则展开；与 `.agents/` 冲突时改细则。
 
 | 路径 | 用途 |
 |------|------|

@@ -24,7 +24,7 @@ Usage: install-agent-kit.sh --root <dir> --name <product> --slug <slug> [options
   --with-mcp            Write .mcp.json and Grok MCP block (requires --mcp-cli)
   --mcp-cli RELPATH     Playwright MCP cli path relative to --root
   --with-ci             Write .github/workflows/agent-docs.yml
-  --with-review-skill   Copy generic code-review skill under .agent/skills/
+  --with-review-skill   Copy generic code-review skill under .agents/skills/
 EOF
 }
 
@@ -100,7 +100,7 @@ install_core_tree() {
   while IFS= read -r f; do
     rel="${f#"$src"/}"
     case "$rel" in
-      agent/*) dest="$ROOT/.agent/${rel#agent/}" ;;
+      agents/*) dest="$ROOT/.agents/${rel#agents/}" ;;
       scripts/*) dest="$ROOT/scripts/${rel#scripts/}" ;;
       docs/*) dest="$ROOT/docs/${rel#docs/}" ;;
       *) dest="$ROOT/$rel" ;;
@@ -123,7 +123,7 @@ install_overlay_tree() {
   while IFS= read -r f; do
     rel="${f#"$src"/}"
     case "$rel" in
-      agent/*) dest="$ROOT/.agent/${rel#agent/}" ;;
+      agents/*) dest="$ROOT/.agents/${rel#agents/}" ;;
       docs/*) dest="$ROOT/docs/${rel#docs/}" ;;
       *) dest="$ROOT/$rel" ;;
     esac
@@ -139,8 +139,8 @@ install_overlay_tree() {
 assert_pointer_or_missing() {
   local dest="$1"
   [ ! -f "$dest" ] && return 0
-  if ! grep -q '\.agent/' "$dest"; then
-    echo "refusing to overwrite adapter that does not point at .agent/: ${dest#"$ROOT"/}" >&2
+  if ! grep -q '\.agents/' "$dest"; then
+    echo "refusing to overwrite adapter that does not point at .agents/: ${dest#"$ROOT"/}" >&2
     exit 1
   fi
   if grep -q '^## 关键红线摘要' "$dest"; then
@@ -203,18 +203,18 @@ install_optional() {
     local src="$KIT_HOME/templates/optional/skills/code-review"
     while IFS= read -r f; do
       rel="${f#"$src"/}"
-      dest="$ROOT/.agent/skills/code-review/$rel"
+      dest="$ROOT/.agents/skills/code-review/$rel"
       if [ -f "$dest" ] && [ "$FORCE_CORE" -eq 0 ]; then
-        echo "optional skip  .agent/skills/code-review/$rel"
+        echo "optional skip  .agents/skills/code-review/$rel"
         continue
       fi
       subst "$f" "$dest"
-      echo "optional write .agent/skills/code-review/$rel"
+      echo "optional write .agents/skills/code-review/$rel"
     done < <(find "$src" -type f | sort)
   fi
 }
 
-if [ -f "$ROOT/.agent/constraints.md" ] || [ -f "$ROOT/AGENTS.md" ]; then
+if [ -f "$ROOT/.agents/constraints.md" ] || [ -f "$ROOT/AGENTS.md" ]; then
   MODE=existing
 else
   MODE=empty

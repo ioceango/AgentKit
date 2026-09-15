@@ -1,4 +1,4 @@
-# .agent/architecture.md — 系统架构与模块职责
+# .agents/architecture.md — 系统架构与模块职责
 
 > 本文件规定「改哪里」。由项目维护；套件升级不会覆盖已有内容。
 > 产品名：**{{PROJECT_NAME}}**。与 `constraints.md` 冲突时先改本文或约束，使二者一致。`workflow.md` 的确认门不因架构差异而取消。
@@ -19,7 +19,7 @@
 | （例：domain / services） | | |
 | （例：ui / pages） | | |
 
-调用方向与 `.agent/rules.md` 分层原则一致，除非本节显式声明例外。
+调用方向与 `.agents/rules.md` 分层原则一致，除非本节显式声明例外。
 
 ## 3. 数据与身份
 

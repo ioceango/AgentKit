@@ -1,7 +1,7 @@
 <!-- agent-kit-core: {{KIT_VERSION}} -->
 # 05 需求与 Bug 迭代流程
 
-执行顺序以 `.agent/workflow.md` 为准。本文是展开。
+执行顺序以 `.agents/workflow.md` 为准。本文是展开。
 
 ## 硬门
 

@@ -1,4 +1,4 @@
-# Grok: scan .agent/skills (not the default .grok/skills path).
+# Grok: scan .agents/skills (not the default .grok/skills path).
 
 [skills]
-paths = [".agent/skills"]
+paths = [".agents/skills"]

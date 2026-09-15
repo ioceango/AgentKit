@@ -1,5 +1,5 @@
 <!-- agent-kit-core: {{KIT_VERSION}} -->
-# .agent/workflow.md — 迭代流程与用户确认门
+# .agents/workflow.md — 迭代流程与用户确认门
 
 > 本文件规定「什么时候才允许改业务代码」。这是最高优先级的流程约束。
 > 展开见 `docs/rules/05-iteration.md` 与 `docs/rules/08-git.md`。
@@ -18,7 +18,7 @@
 ⑦ 【用户确认 plan】 ← 硬性门
 ⑧ 生成 checklist.md
 ⑨ 才允许改业务代码
-⑩ 按 .agent/verification.md 执行验证
+⑩ 按 .agents/verification.md 执行验证
 ⑪ 编号截图写入该迭代 `test-report/`（`S01-*.png` 起），在 `test-report.md` 按编号引用后归档
 ⑫ 登记索引；若本迭代改动了数据库表，同步项目表结构目录（若有）
 ⑬ 若仓库已有 `.git`：确保 `develop` 分支存在（没有则从 `main` 创建），在本迭代编号分支上提交并推送（见 §7）
@@ -72,7 +72,7 @@ ls docs/bug-fix    # 取现有最大 BUG 号 + 1
 
 **测试报告红线**：只允许写**实际执行过**的验证结果。未执行的步骤必须显式标注为未执行/后续补齐，禁止编造命令输出、用例数量或结论。
 
-**端到端 / 截图（每个 FEAT 与每个 BUG，细则见 `.agent/verification.md`）**
+**端到端 / 截图（每个 FEAT 与每个 BUG，细则见 `.agents/verification.md`）**
 - 有 UI 的迭代必须跑端到端，禁止只靠 curl 或读代码宣称 UI 完成。
 - 截图只许放在该迭代的 `test-report/` 子目录，文件名 `S<2位>-<slug>.png`。
 - `test-report.md` 必须用表格引用全部编号截图，并标注覆盖的 AC。缺文件或未引用视为未完成。
@@ -86,8 +86,8 @@ ls docs/bug-fix    # 取现有最大 BUG 号 + 1
 ## 6. 归档与完成
 
 - 迭代完成后把索引表状态改为「已完成」，并更新「下一个可用编号」。
-- 架构变更同步 `.agent/architecture.md`。
-- 完成定义见 `.agent/verification.md`。
+- 架构变更同步 `.agents/architecture.md`。
+- 完成定义见 `.agents/verification.md`。
 
 ## 7. Git 提交与分支（有 `.git` 时强制）
 

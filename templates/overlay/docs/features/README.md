@@ -2,7 +2,7 @@
 
 > 每个需求一个编号目录，命名 `FEAT-<3位序号>-<英文短slug>/`，序号全局单调递增、不复用、不回填。
 > 每个目录固定四份文档：`spec.md`、`plan.md`、`checklist.md`、`test-report.md`。
-> **新增需求必须先在本表登记，再开始写代码。** 流程见 [`.agent/workflow.md`](../../.agent/workflow.md)。
+> **新增需求必须先在本表登记，再开始写代码。** 流程见 [`.agents/workflow.md`](../../.agents/workflow.md)。
 
 产品名：**{{PROJECT_NAME}}**。
 

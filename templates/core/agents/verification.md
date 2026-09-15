@@ -1,5 +1,5 @@
 <!-- agent-kit-core: {{KIT_VERSION}} -->
-# .agent/verification.md — 验证命令、顺序与完成定义
+# .agents/verification.md — 验证命令、顺序与完成定义
 
 > 本文件规定「何时算做完」。顺序不得调换，步骤不得跳过。
 > 栈相关命令（语言、包管理器、e2e 启动方式）由项目在 §1.1 维护；升级 core 时请手工合并该节。
@@ -8,7 +8,7 @@
 ## 1. 验证顺序
 
 ```bash
-# ⓿ 文档合规 gate（.agent 规约 + 工具指针 + 编号目录 + 索引登记）
+# ⓿ 文档合规 gate（.agents 规约 + 工具指针 + 编号目录 + 索引登记）
 bash scripts/verify-agent.sh
 ```
 
@@ -28,8 +28,8 @@ bash scripts/verify-agent.sh
 
 | 判定项 | 不合规表现 |
 |--------|-----------|
-| `.agent/` 规约齐全 | 必需文件（README / architecture / rules / constraints / workflow / verification / design）缺失或为空 |
-| 工具指针有效 | `AGENTS.md`、`CLAUDE.md`、`.grok/rules/00-<slug>-rules.md`、`.trae/rules/00-<slug>-rules.md` 缺失、为空、未指向 `.agent/`、或含红线条款拷贝 |
+| `.agents/` 规约齐全 | 必需文件（README / architecture / rules / constraints / workflow / verification / design）缺失或为空 |
+| 工具指针有效 | `AGENTS.md`、`CLAUDE.md`、`.grok/rules/00-<slug>-rules.md`、`.trae/rules/00-<slug>-rules.md` 缺失、为空、未指向 `.agents/`、或含红线条款拷贝 |
 | 编号目录命名 | 不匹配 `FEAT-<3位>-<小写slug>` / `BUG-<3位>-<小写slug>` |
 | 四文档齐全 | 缺少 spec / plan / checklist / test-report 任一份 |
 | 文档非空 | 文件存在但内容为空 |
@@ -81,6 +81,6 @@ Bug 迭代同理：`docs/bug-fix/BUG-00X-<slug>/test-report/`。
 - [ ] 有 UI 则端到端通过，截图已落入 `test-report/` 且在 `test-report.md` 按编号引用
 - [ ] `test-report.md` 附真实命令输出摘要，结论为通过或有条件通过
 - [ ] 新增/变更配置已写入项目的配置样例文件（若有）
-- [ ] 架构有变化时已同步 `.agent/architecture.md`
+- [ ] 架构有变化时已同步 `.agents/architecture.md`
 
 以上任一项未达成，不得宣称完成。
